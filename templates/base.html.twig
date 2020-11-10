@@ -1,12 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html class="loading" lang="en" data-textdirection="ltr">
     <head>
-        <meta charset="UTF-8">
+		{% block meta %}
+        	<meta charset="UTF-8">
+		{% endblock %}
+
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+
+		{% block topjsscripts %} {% endblock %}
+
+        {% block stylesheets %} {% endblock %}
     </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+    <body class="{% block body_class %}{% endblock %}" data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
+		{% block header %} {% endblock %}
+
+        {% block left_sidebar %} {% endblock %}
+
+        {% block body %} {% endblock %}
+
+        {% block footer %} {% endblock %}
+		
+        {% block javascripts %} {% endblock %}
     </body>
 </html>

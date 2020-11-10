@@ -1,0 +1,30 @@
+<ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+    <li class=" nav-item @yield('dashboard')">
+		<a href="{{ path('admin_index') }}"><i class="la la-home"></i><span class="menu-title" data-i18n="Dashboard">Dashboard</span></a>
+    </li>
+    <li class=" nav-item @yield('admin-user')">
+		<a href="{{ path('user_index') }}"><i class="la la-user-plus"></i><span class="menu-title" data-i18n="eCommerce">User</span></a>
+    </li>
+    {# <li class=" nav-item @yield('gym-admin')">
+		<a href="{{ path('category_index') }}"><i class="la la-user"></i><span class="menu-title" data-i18n="eCommerce">Job Category</span></a>
+    </li> #}
+    <li class=" nav-item @yield('gym')">
+		<a href="#"><i class="la la-user"></i><span class="menu-title" data-i18n="eCommerce">Menu 2</span></a>
+    </li>
+    <li class=" nav-item @yield('workout-body-parts')">
+		<a href="#"><i class="la la-user"></i><span class="menu-title" data-i18n="eCommerce">Menu 3</span></a>
+    </li>
+    <li class=" nav-item @yield('workout-item')">
+		<a href="#"><i class="la la-user"></i><span class="menu-title" data-i18n="eCommerce">Menu 4</span></a>
+    </li>
+    <li class=" nav-item @yield('Role Management')"><a href="#"><i class="la la-user"></i><span class="menu-title" data-i18n="Role Management">Main menu</span></a>
+        <ul class="menu-content">
+            <li class="@yield('role')"><a class="menu-item" href="#"><i></i><span data-i18n="Role">Sub menu 1</span></a>
+            </li>
+            <li class="@yield('permission-group')"><a class="menu-item" href="#"><i></i><span data-i18n="Permission Group">Sub menu 2</span></a>
+            </li>
+            <li class="@yield('permission')"><a class="menu-item" href=""><i></i><span data-i18n="Permission">Sub menu 3</span></a>
+            </li>
+        </ul>
+    </li>
+</ul>

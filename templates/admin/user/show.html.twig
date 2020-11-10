@@ -1,0 +1,128 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %} User Details {% endblock %}
+{% block pagename %} User Details {% endblock %}
+
+{% block breadcrumb %} 
+	<li class="breadcrumb-item"><a href="{{ path('admin_index') }}">Dashboard</a></li>
+    <li class="breadcrumb-item"><a href="{{ path('user_index') }}">User</a></li>
+    <li class="breadcrumb-item active">User Details</li>
+{% endblock %}
+
+{% block content %} 
+	<div class="content-body">
+        <section id="pagination">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <a class="text-white" href="{{ path('user_new') }}">
+                                <button type="button" class="btn btn-round btn-sm btn-primary">
+                                    <i class="ft-plus text-white">
+                                    </i> Create New
+                                </button>
+                            </a>
+                            <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                            <div class="heading-elements">
+                                <ul class="list-inline mb-0">
+                                    <li><a data-action="collapse"><i class="btn-outline-warning ft-minus"></i></a></li>
+                                    <li><a data-action="reload"><i class="btn-outline-primary ft-rotate-cw"></i></a></li>
+                                    <li><a data-action="expand"><i class="btn-outline-success ft-maximize"></i></a></li>
+                                    <li><a data-action="close"><i class="btn-outline-danger ft-x"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-content collapse show">
+                            <div class="card-body card-dashboard text-center">
+                                <div class="table-responsive">
+                                    <table class="table display nowrap table-striped table-bordered alt-pagination"
+                                           id="patient-table">										
+										<tbody>
+											<tr>
+												<th>Id</th>
+												<td>{{ user.id }}</td>
+											</tr>
+											<tr>
+												<th>Name</th>
+												<td>{{ user.name }}</td>
+											</tr>
+											<tr>
+												<th>Email</th>
+												<td>{{ user.email }}</td>
+											</tr>
+											<tr>
+												<th>Password</th>
+												<td>{{ '******' }}</td>
+											</tr>
+											<tr>
+												<th>Profile photo</th>
+												<td>
+													{% if '' != user.profilePhoto %}
+														<img src="{{ user.profilePhoto}}" height="40" width="40" alt="{{ user.name }}" />
+													{% else %}
+														...
+													{% endif %}												
+												</td>
+											</tr>
+											<tr>
+												<th>User type</th>
+												<td>
+													{% if user.type == 0 %}
+														Admin
+													{% elseif user.type == 1 %}
+														Job poster
+													{% else %}
+														User
+													{% endif %}
+												</td>
+											</tr>
+											<tr>
+												<th>Status</th>
+												<td>
+													{% if user.type == 1 %}
+														Active
+													{% else %}
+														Inactive
+													{% endif %}
+												</td>
+											</tr>
+											<tr>
+												<th>Created by</th>
+												<td>{{ user.createdBy }}</td>
+											</tr>
+											<tr>
+												<th>Edited by</th>
+												<td>{{ user.updatedBy }}</td>
+											</tr>
+											<tr>
+												<th>Deleted by</th>
+												<td>{{ user.deletedBy }}</td>
+											</tr>
+											<tr>
+												<th>Created at</th>
+												<td>{{ user.createdAt ? user.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+											</tr>
+											<tr>
+												<th>Edited at</th>
+												<td>{{ user.updatedAt ? user.editedAt|date('Y-m-d H:i:s') : '' }}</td>
+											</tr>
+											<tr>
+												<th>Deleted at</th>
+												<td>{{ user.deletedAt ? user.deletedAt|date('Y-m-d H:i:s') : '' }}</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>    
+{% endblock %}
+
+{% block javascripts %}
+	{{  parent()  }}
+{% endblock %}
+

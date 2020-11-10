@@ -1,0 +1,24 @@
+ {% for message in app.flashes('success') %}
+    <div class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
+        {{ message }}
+    </div>
+{% endfor %}
+
+{% for message in app.flashes('alert') %}
+    <div class="alert alert-danger alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
+        {{ message }}
+    </div>
+{% endfor %}
+
+{% for message in app.flashes('warning') %}
+    <div class="alert alert-warning alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
+        {{ message }}
+    </div>
+{% endfor %}
+
+<script>
+    $('div.alert').delay(7000).slideUp(300);
+</script>

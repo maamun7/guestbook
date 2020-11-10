@@ -1,0 +1,18 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %} Dashboard {% endblock %}
+{% block pagename %} Page Name {% endblock %}
+
+{% block breadcrumb %} 
+	<li class="breadcrumb-item active"> Home </li>
+{% endblock %}
+
+{% block content %} 
+	<div class="content-body">
+		<h1> Hello From Dashboard </h1>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+	{{  parent()  }}
+{% endblock %}
